@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Strev.QuickTools.View.UserControls.TextZone"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             KeyboardNavigation.IsTabStop="False"
+             d:DesignHeight="300"
+             d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid
+        x:Name="LayoutRoot"
+        KeyboardNavigation.IsTabStop="False">
+        <TextBox
+            KeyboardNavigation.IsTabStop="False"
+            Width="{Binding ActualWidth, ElementName=LayoutRoot}"
+            Height="{Binding ActualHeight, ElementName=LayoutRoot}"
+            FontFamily="Calibri, Arial"
+            FontSize="{Binding TextFontSize}"
+            FontWeight="Bold"
+            HorizontalAlignment="{Binding HorizontalAlignment}"
+            IsReadOnly="{Binding IsReadOnly}"
+            Text="{Binding Path=Text, Mode=TwoWay}"
+            AcceptsReturn="True" />
+    </Grid>
+</UserControl>

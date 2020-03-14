@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>{package_name}</id>
+    <version>{version}</version>
+    <authors>Strev</authors>
+    <owners>Strev</owners>
+    <icon>images\QuickTools-32.png</icon>
+    <projectUrl>https://github.com/strev-org/Strev.QuickTools</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/strev-org/Strev.QuickTools/master/res/QuickTools-32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple WPF MVVM framework to quickly create graphical tools{description_add}</description>
+    <releaseNotes></releaseNotes>
+    <copyright>MIT</copyright>
+    <tags>QuickTools Strev</tags>
+  </metadata>
+  <files>
+    <file src="{package_path}\Release\{target1}\{package_name}.dll" target="lib\{target1}\{package_name}.dll" />
+    <file src="{package_path}\Release\{target2}\{package_name}.dll" target="lib\{target2}\{package_name}.dll" />
+    <file src="{package_path}\..\..\res\QuickTools-32.png" target="images\" />
+  </files> 
+</package>

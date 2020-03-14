@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="Strev.QuickTools.View.UserControls.ControlElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:conv="clr-namespace:Strev.QuickTools.View.Converters"
+             xmlns:themeuc="clr-namespace:Strev.QuickTools.View.UserControls"
+             mc:Ignorable="d"
+    KeyboardNavigation.IsTabStop="False"
+    d:DesignHeight="30"
+    d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <conv:TextSizeToHeightConverter x:Key="TextSizeToHeightConverter" />
+            <ControlTemplate x:Key="Template_NoElement">
+                <Border
+                    Height="10"
+                    KeyboardNavigation.IsTabStop="False" />
+            </ControlTemplate>
+            <ControlTemplate x:Key="Template_Label">
+                <themeuc:Label
+                    Height="{Binding Path=TextSize, Converter={StaticResource TextSizeToHeightConverter}}"
+                    Text="{Binding Text}"
+                    TextSize="{Binding TextSize}"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,0" />
+            </ControlTemplate>
+            <ControlTemplate x:Key="Template_CenteredLabel">
+                <themeuc:Label
+                    Height="{Binding Path=TextSize, Converter={StaticResource TextSizeToHeightConverter}}"
+                    Text="{Binding Text}"
+                    TextSize="{Binding TextSize}"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,0" />
+            </ControlTemplate>
+            <ControlTemplate x:Key="Template_Input">
+                <themeuc:Input
+                    Height="{Binding Path=TextSize, Converter={StaticResource TextSizeToHeightConverter}}"
+                    Text="{Binding Text}"
+                    TextSize="{Binding TextSize}"
+                    IsReadOnly="{Binding IsReadOnly}"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,0" />
+            </ControlTemplate>
+            <ControlTemplate x:Key="Template_TextZone">
+                <themeuc:TextZone
+                    Text="{Binding Text}"
+                    TextSize="{Binding TextSize}"
+                    IsReadOnly="{Binding IsReadOnly}"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch" />
+            </ControlTemplate>
+            <ControlTemplate x:Key="Template_Toggle">
+                <themeuc:ToggleButton
+                    Height="{Binding Path=TextSize, Converter={StaticResource TextSizeToHeightConverter}}"
+                    Text="{Binding Text}"
+                    TextSize="{Binding TextSize}"
+                    Selected="{Binding Selected}"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,0" />
+            </ControlTemplate>
+            <ControlTemplate x:Key="Template_Button">
+                <themeuc:Button
+                    Height="{Binding Path=TextSize, Converter={StaticResource TextSizeToHeightConverter}}"
+                    Text="{Binding Text}"
+                    TextSize="{Binding TextSize}"
+                    Command="{Binding Command}"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,0" />
+            </ControlTemplate>
+            <ControlTemplate x:Key="Template_Choice">
+                <themeuc:Choice
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,0" />
+            </ControlTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ContentControl IsTabStop="False">
+        <ContentControl.Style>
+            <Style TargetType="ContentControl">
+                <Setter Property="Template" Value="{StaticResource Template_NoElement}" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding ElementType}" Value="None">
+                        <Setter Property="Template" Value="{StaticResource Template_NoElement}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ElementType}" Value="Label">
+                        <Setter Property="Template" Value="{StaticResource Template_Label}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ElementType}" Value="CenteredLabel">
+                        <Setter Property="Template" Value="{StaticResource Template_CenteredLabel}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ElementType}" Value="Input">
+                        <Setter Property="Template" Value="{StaticResource Template_Input}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ElementType}" Value="TextZone">
+                        <Setter Property="Template" Value="{StaticResource Template_TextZone}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ElementType}" Value="Toggle">
+                        <Setter Property="Template" Value="{StaticResource Template_Toggle}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ElementType}" Value="Button">
+                        <Setter Property="Template" Value="{StaticResource Template_Button}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ElementType}" Value="Choice">
+                        <Setter Property="Template" Value="{StaticResource Template_Choice}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ContentControl.Style>
+    </ContentControl>
+</UserControl>

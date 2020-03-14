@@ -1,0 +1,18 @@
+﻿<Project>
+  <PropertyGroup>
+    <TargetFrameworks>net35;net472</TargetFrameworks>
+    <RootNamespace>Strev.QuickTools</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="$(SolutionDir)\build\Main.props" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\Strev.QuickTools\Strev.QuickTools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  
+  <Import Project="$(BuildDir)\CustomProject.props" />
+</Project>

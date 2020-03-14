@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Strev.QuickTools.View.ScreenGeneric"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:view="clr-namespace:Strev.QuickTools.View"
+    xmlns:themeuc="clr-namespace:Strev.QuickTools.View.UserControls"
+    mc:Ignorable="d"
+    KeyboardNavigation.IsTabStop="False"
+    d:DesignHeight="300"
+    d:DesignWidth="300">
+    <Grid KeyboardNavigation.IsTabStop="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <themeuc:ScreenBackground Grid.ColumnSpan="1000000" Grid.RowSpan="1000000" />
+        <themeuc:ControlStack
+            DataContext="{Binding TopStackVM}"
+            Grid.Row="1"
+            Grid.Column="1" />
+        <Grid
+            KeyboardNavigation.IsTabStop="False"
+            Grid.Row="2"
+            Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <themeuc:ControlStackElement
+                DataContext="{Binding MiddleElementVM}"
+                Grid.Row="1"
+                Grid.Column="0" />
+        </Grid>
+        <themeuc:ControlStack
+            DataContext="{Binding BottomStackVM}"
+            Grid.Row="3"
+            Grid.Column="1" />
+    </Grid>
+</UserControl>
