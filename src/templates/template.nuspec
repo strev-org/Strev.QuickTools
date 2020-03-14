@@ -12,6 +12,7 @@
     <description>A simple WPF MVVM framework to quickly create graphical tools{description_add}</description>
     <releaseNotes></releaseNotes>
     <copyright>MIT</copyright>
+    <license type="expression">MIT</license>
     <tags>QuickTools Strev</tags>
   </metadata>
   <files>
