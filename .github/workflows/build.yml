@@ -21,7 +21,7 @@ jobs:
 
       - name: echo
         run: |
-            echo "[${{ env.GITHUB_WORKSPACE }}] [${ env.GITHUB_WORKSPACE }] [%GITHUB_WORKSPACE%]"
+            echo "[${{ env.GITHUB_WORKSPACE }}] [${ env.GITHUB_WORKSPACE }] [$env:GITHUB_WORKSPACE]"
 
       - name: nuget restore
         env: 
