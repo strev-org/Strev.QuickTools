@@ -11,15 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: nuget restore
-        uses: nuget/setup-nuget@v1
-        env: 
-            MSBUILD: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
-            SolutionDir: ${{ env.GITHUB_WORKSPACE }}\src
+      - uses: nuget/setup-nuget@v1
         with:
           nuget-api-key: ${{secrets.NUGET_API_KEY}}
           nuget-version: '5.x'
-      - run: nuget restore src\projects\Strev.QuickTools\Strev.QuickTools.csproj
+
+      - name: nuget restore
+        env: 
+            MSBUILD: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
+            SolutionDir: ${{ env.GITHUB_WORKSPACE }}\src
+        run: nuget restore src\projects\Strev.QuickTools\Strev.QuickTools.csproj
 
       - name: Build DotNET35
         env: 
