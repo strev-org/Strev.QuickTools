@@ -22,11 +22,12 @@ jobs:
       - name: echo
         run: |
             echo "[${{ env.GITHUB_WORKSPACE }}] [${ env.GITHUB_WORKSPACE }] [$env:GITHUB_WORKSPACE]"
+            echo "SolutionDir=$env:GITHUB_WORKSPACE\src" >> "$env.GITHUB_ENV"
 
       - name: nuget restore
         env: 
             MSBUILD: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
-            SolutionDir: %env:GITHUB_WORKSPACE\src
+            # SolutionDir: %env:GITHUB_WORKSPACE\src
         run: nuget restore src\projects\Strev.QuickTools\Strev.QuickTools.csproj
 
       - name: Build DotNET35
