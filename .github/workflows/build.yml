@@ -29,6 +29,7 @@ jobs:
       - name: Build DotNET35
         env: 
             MSBUILD: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
+            SolutionDir: ${{env.GITHUB_WORKSPACE}}\src
         run: |
            cd "$env:GITHUB_WORKSPACE\src\projects\Strev.QuickTools"
            %MSBUILD% Strev.QuickTools.csproj
