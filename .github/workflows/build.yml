@@ -19,6 +19,10 @@ jobs:
       - name: dir
         run: dir
 
+      - name: echo
+        run: |
+            echo "[${{ env.GITHUB_WORKSPACE }}] [${ env.GITHUB_WORKSPACE }] [$env:GITHUB_WORKSPACE]"
+
       - name: nuget restore
         env: 
             MSBUILD: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
@@ -29,6 +33,9 @@ jobs:
         env: 
             MSBUILD: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
             SolutionDir: $env:GITHUB_WORKSPACE\src
+        run: |
+           cd "$env:GITHUB_WORKSPACE\src\projects\Strev.QuickTools"
+           %MSBUILD% Strev.QuickTools.csproj
 
       # Publish
       - name: publish on version change
