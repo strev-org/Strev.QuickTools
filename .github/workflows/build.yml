@@ -16,6 +16,9 @@ jobs:
           nuget-api-key: ${{secrets.NUGET_API_KEY}}
           nuget-version: '5.x'
 
+      - name: dir
+        run: dir
+
       - name: nuget restore
         env: 
             MSBUILD: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
