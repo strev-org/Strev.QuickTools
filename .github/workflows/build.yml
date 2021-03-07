@@ -23,6 +23,7 @@ jobs:
         run: |
             echo "[${{ env.GITHUB_WORKSPACE }}] [${ env.GITHUB_WORKSPACE }] [$env:GITHUB_WORKSPACE]"
             echo "SolutionDir=$env:GITHUB_WORKSPACE\src" >> "$env.GITHUB_ENV"
+            type "$env.GITHUB_ENV"
 
       - name: nuget restore
         env: 
